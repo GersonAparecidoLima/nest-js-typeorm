@@ -53,7 +53,7 @@ export class UsuarioController {
 
     return {
       usuario: usuarioAtualizado,
-      messagem: 'usuário atualizado com sucesso',
+      messagem: 'usuário atualizado com sucesso.',
     };
   }
 

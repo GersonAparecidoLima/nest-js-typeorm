@@ -13,10 +13,14 @@ export class UsuarioService {
   ) {}
 
   async criaUsuario(usuarioEntity: UsuarioEntity) {
+    //salvando no banco de dados
+    //save() função nativa do typeorm
     await this.usuarioRepository.save(usuarioEntity);
   }
 
   async listUsuarios() {
+    //buscando no bando de dados 
+    //find() função nativa do typeorm
     const usuariosSalvos = await this.usuarioRepository.find();
     const usuariosLista = usuariosSalvos.map(
       (usuario) => new ListaUsuarioDTO(usuario.id, usuario.nome),
@@ -32,10 +36,14 @@ export class UsuarioService {
   }
 
   async atualizaUsuario(id: string, novosDados: AtualizaUsuarioDTO) {
+    //buscando no bando de dados 
+    //update() função nativa do typeorm, com dois parametros
     await this.usuarioRepository.update(id, novosDados);
   }
 
   async deletaUsuario(id: string) {
+    //buscando no bando de dados 
+    //update() função nativa do typeorm, com um parametros
     await this.usuarioRepository.delete(id);
   }
 }

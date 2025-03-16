@@ -6,7 +6,6 @@ import { ProdutoModule } from './produto/produto.module';
 import { UsuarioModule } from './usuario/usuario.module';
 import { PostgresConfigService } from './config/postgres.config.service';
 
-
 @Module({
   imports: [
     UsuarioModule,

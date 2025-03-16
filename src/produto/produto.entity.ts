@@ -44,6 +44,7 @@ export class ProdutoEntity {
   @DeleteDateColumn({ name: 'deleted_at' })
   deletedAt: string;
 
+  //um para muitos
   @OneToMany(
     () => ProdutoImagemEntity,
     (produtoImageEntity) => produtoImageEntity.produto,
@@ -51,6 +52,7 @@ export class ProdutoEntity {
   )
   imagens: ProdutoImagemEntity[];
 
+  //um para muitos
   @OneToMany(
     () => ProdutoCaracteristicaEntity,
     (produtoCaracteristicaEntity) => produtoCaracteristicaEntity.produto,
@@ -58,6 +60,7 @@ export class ProdutoEntity {
   )
   caracteristicas: ProdutoCaracteristicaEntity[];
 
+  //Utilizando a funcao cascade
   @ManyToOne(
     () => FornecedorEntity, (fornecedor) => fornecedor.produtos, 
     { nullable: true, cascade: false, eager: true }
